@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/chat")
 public class ChatController {
-     public String home() {
+
+    @GetMapping("/")
+    public String home() {
         return "Hello from Spring Boot on EC2!";
     }
+
     @PostMapping
     public String chat(@RequestBody ChatRequest request) {
         String userMessage = request.getMessage().toLowerCase();
